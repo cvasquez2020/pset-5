@@ -20,9 +20,9 @@ public class ProblemSet5 {
 
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
-        System.out.print(ps.surroundMe("aise ", "prra"));
-        //ps.endsMeet();
-        //ps.middleMan();
+        //System.out.print(ps.surroundMe("aise ", "prra"));
+        //System.out.print(ps.endsMeet("atlanta", 2));
+        System.out.print(ps.middleMan( ));
         //ps.isCentered();
         //ps.countMe();
         //ps.triplets();
@@ -55,11 +55,11 @@ public class ProblemSet5 {
      */
 
     public String endsMeet(String text, int n) {
-        if ()
-            for (int i = 0; i < n; i++) {
-
-            }
-        return "hi";
+        if (text.length() <= 10 && text.length() >= 1 && n >= 1 && n <= text.length()) {
+            return text.substring(0, n) + text.substring(text.length() - n, text.length());
+        } else {
+            return text;
+        }
     }
 
     /*
@@ -69,7 +69,11 @@ public class ProblemSet5 {
      */
 
     public String middleMan(String text) {
-        return "hi";
+        if (text.length() % 2 == 1){
+            return text.substring(text.length() / 2 - 1, text.length() / 2 + 2);
+        } else {
+            return text;
+        }
     }
 
     /*
