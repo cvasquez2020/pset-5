@@ -40,14 +40,11 @@ public class ProblemSet5 {
      */
 
     public String surroundMe(String in, String out) {
-        String surrounded = in;
-        int lastTwo = out.length();
-        if (in == null || out == null) {
+        if (in == null || out.length() != 4) {
             return in;
-        } else if (out ==)
-        surrounded = out.substring(0,2) + in + out.substring(lastTwo - 2, lastTwo);
+        }
+        return out.substring(0,2) + in + out.substring(out.length() - 2, out.length());
 
-        return surrounded;
     }
 
     /*
@@ -58,6 +55,10 @@ public class ProblemSet5 {
      */
 
     public String endsMeet(String text, int n) {
+        if ()
+            for (int i = 0; i < n; i++) {
+
+            }
         return "hi";
     }
 
