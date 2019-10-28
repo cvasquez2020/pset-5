@@ -20,7 +20,7 @@ public class ProblemSet5 {
 
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
-        System.out.print(ps.surroundMe("please", "work"));
+        System.out.print(ps.surroundMe("aise ", "prra"));
         //ps.endsMeet();
         //ps.middleMan();
         //ps.isCentered();
@@ -42,7 +42,11 @@ public class ProblemSet5 {
     public String surroundMe(String in, String out) {
         String surrounded = in;
         int lastTwo = out.length();
+        if (in == null || out == null) {
+            return in;
+        } else if (out ==)
         surrounded = out.substring(0,2) + in + out.substring(lastTwo - 2, lastTwo);
+
         return surrounded;
     }
 
