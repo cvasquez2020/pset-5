@@ -23,7 +23,7 @@ public class ProblemSet5 {
         //System.out.print(ps.surroundMe("aise ", "prra"));
         //System.out.print(ps.endsMeet("killlakill", 2));
         //System.out.print(ps.middleMan("qw"));
-        System.out.print(ps.isCentered("quackzz", "ack"));
+        System.out.print(ps.isCentered("qucckzz", "cck"));
         //ps.countMe();
         //ps.triplets();
         //ps.addMe();
