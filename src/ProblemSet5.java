@@ -21,9 +21,9 @@ public class ProblemSet5 {
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
         //System.out.print(ps.surroundMe("aise ", "prra"));
-        //System.out.print(ps.endsMeet("atlanta", 2));
-        System.out.print(ps.middleMan( ));
-        //ps.isCentered();
+        //System.out.print(ps.endsMeet("killlakill", 2));
+        //System.out.print(ps.middleMan("qw"));
+        System.out.print(ps.isCentered("quackzz", "ack"));
         //ps.countMe();
         //ps.triplets();
         //ps.addMe();
@@ -55,10 +55,10 @@ public class ProblemSet5 {
      */
 
     public String endsMeet(String text, int n) {
-        if (text.length() <= 10 && text.length() >= 1 && n >= 1 && n <= text.length()) {
-            return text.substring(0, n) + text.substring(text.length() - n, text.length());
-        } else {
+        if (text == null || !(text.length() <= 10 && text.length() >= 1 && n >= 1 && n <= text.length())) {
             return text;
+        } else {
+            return text.substring(0, n) + text.substring(text.length() - n, text.length());
         }
     }
 
@@ -69,11 +69,12 @@ public class ProblemSet5 {
      */
 
     public String middleMan(String text) {
-        if (text.length() % 2 == 1){
-            return text.substring(text.length() / 2 - 1, text.length() / 2 + 2);
-        } else {
+        if (text == null || text.length() % 2 != 1 || text.length() < 3) {
             return text;
+        } else {
+            return text.substring(text.length() / 2 - 1, text.length() / 2 + 2);
         }
+
     }
 
     /*
@@ -84,7 +85,12 @@ public class ProblemSet5 {
      */
 
     public boolean isCentered(String text, String target) {
-        return true;
+        if (text == null || target == null || (text.length() % 2 == 0) || text.length() < 3  || target.length() != 3 || !((text.substring(text.length() / 2 - 1, text.length() / 2 + 2)).equals(target))) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
     /*
