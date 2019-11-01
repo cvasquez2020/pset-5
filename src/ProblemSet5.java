@@ -23,8 +23,8 @@ public class ProblemSet5 {
         //System.out.print(ps.surroundMe("aise ", "prra"));
         //System.out.print(ps.endsMeet("killlakill", 2));
         //System.out.print(ps.middleMan("qw"));
-        System.out.print(ps.isCentered("qucckzz", "cck"));
-        //ps.countMe();
+        //System.out.print(ps.isCentered("qucckzz", "cck"));
+        System.out.print(ps.countMe("Alex Alex Alex Alex", 'x'));
         //ps.triplets();
         //ps.addMe();
         //ps.sequence();
@@ -100,7 +100,20 @@ public class ProblemSet5 {
      */
 
     public int countMe(String text, char suffix) {
-        return 1;
+        int count = 0;
+        if (text == null || Character.toString(suffix).matches("[a-zA-Z]")); {
+                for (int i  = 0; i < text.length(); i++){
+                    if ((text.substring(i, i + 1).equals(" ")) && (text.substring(i - 1, i).equals(Character.toString(suffix))) && (i != 0)){
+                        count++;
+                    }
+
+                }
+            }
+        if (count != 0) {
+            return count;
+        } else {
+            return -1;
+        }
     }
 
     /*
