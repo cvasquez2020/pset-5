@@ -24,8 +24,8 @@ public class ProblemSet5 {
         //System.out.print(ps.endsMeet("killlakill", 2));
         //System.out.print(ps.middleMan("qw"));
         //System.out.print(ps.isCentered("qucckzz", "cck"));
-        System.out.print(ps.countMe("Alex Alex Alex Alex", 'x'));
-        //ps.triplets();
+        //System.out.print(ps.countMe("ii", 'i'));
+        System.out.print(ps.triplets("llliii"));
         //ps.addMe();
         //ps.sequence();
         //ps.intertwine();
@@ -43,8 +43,7 @@ public class ProblemSet5 {
         if (in == null || out.length() != 4) {
             return in;
         }
-        return out.substring(0,2) + in + out.substring(out.length() - 2, out.length());
-
+        return out.substring(0, 2) + in + out.substring(out.length() - 2, out.length());
     }
 
     /*
@@ -74,7 +73,6 @@ public class ProblemSet5 {
         } else {
             return text.substring(text.length() / 2 - 1, text.length() / 2 + 2);
         }
-
     }
 
     /*
@@ -101,19 +99,15 @@ public class ProblemSet5 {
 
     public int countMe(String text, char suffix) {
         int count = 0;
-        if (text == null || Character.toString(suffix).matches("[a-zA-Z]")); {
-                for (int i  = 0; i < text.length(); i++){
-                    if ((text.substring(i, i + 1).equals(" ")) && (text.substring(i - 1, i).equals(Character.toString(suffix))) && (i != 0)){
-                        count++;
-                    }
-
-                }
-            }
-        if (count != 0) {
-            return count;
-        } else {
+        if (text == null || !(Character.toString(suffix).matches("[a-zA-Z]"))) {
             return -1;
         }
+        for (int i  = 0; i < text.length(); i++) {
+            if ((i + 1 == text.length() || text.substring(i + 1, i + 2).equals(" ")) && (text.substring(i, i + 1).equals(Character.toString(suffix)))) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /*
@@ -123,7 +117,16 @@ public class ProblemSet5 {
      */
 
     public int triplets(String text) {
-        return 1;
+        int triplets = 0;
+        if (text == null) {
+            return -1;
+        }
+        for (int i = 0; i < text.length() - 2; i++) {
+            if ((text.substring(i, i + 1).equals(text.substring(i + 1, i + 2))) && (text.substring(i, i + 1).equals(text.substring(i + 2, i + 3)))) {
+                triplets++;
+            }
+        }
+        return triplets;
     }
 
     /*
