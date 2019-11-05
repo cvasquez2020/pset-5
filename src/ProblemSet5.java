@@ -25,9 +25,9 @@ public class ProblemSet5 {
         //System.out.print(ps.middleMan("qw"));
         //System.out.print(ps.isCentered("qucckzz", "cck"));
         //System.out.print(ps.countMe("ii", 'i'));
-        System.out.print(ps.triplets("llliii"));
-        //ps.addMe();
-        //ps.sequence();
+        //System.out.print(ps.triplets("   "));
+        //System.out.print(ps.addMe("2 plus 2 is..."));
+        System.out.print(ps.sequence("ggggggggthereee are fouuuur aaaaaaa"));
         //ps.intertwine();
         //ps.isPalindrome();
     }
@@ -122,7 +122,7 @@ public class ProblemSet5 {
             return -1;
         }
         for (int i = 0; i < text.length() - 2; i++) {
-            if ((text.substring(i, i + 1).equals(text.substring(i + 1, i + 2))) && (text.substring(i, i + 1).equals(text.substring(i + 2, i + 3)))) {
+            if ((text.substring(i, i + 1).equals(text.substring(i + 1, i + 2))) && (text.substring(i, i + 1).equals(text.substring(i + 2, i + 3))) && !(text.substring(i, i + 1).equals(" "))) {
                 triplets++;
             }
         }
@@ -136,7 +136,16 @@ public class ProblemSet5 {
      */
 
     public long addMe(String text) {
-        return 1;
+        int sum = 0;
+        if (text == null) {
+            return -1;
+        }
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.isDigit(text.charAt(i))){
+                sum += Integer.valueOf(text.substring(i, i + 1));
+            }
+        }
+        return sum;
     }
 
     /*
@@ -146,7 +155,23 @@ public class ProblemSet5 {
      */
 
     public long sequence(String text) {
-        return 10;
+        int length = 0;
+        int currentLength = 0;
+        if (text == null) {
+            return -1;
+        }
+        for (int i = 0; i < text.length() - 1; i++) {
+            for (int j = 1; j + i < text.length() - 1; j++) {
+                if (text.charAt(i) == (text.charAt(i + j))) {
+                    currentLength++;
+                }
+            }
+            if (currentLength > length){
+                length = 1 + currentLength;
+            }
+            currentLength = 0;
+        }
+        return length;
     }
 
     /*
