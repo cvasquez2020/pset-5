@@ -24,12 +24,12 @@ public class ProblemSet5 {
         //System.out.print(ps.endsMeet("killlakill", 2));
         //System.out.print(ps.middleMan("qw"));
         //System.out.print(ps.isCentered("qucckzz", "cck"));
-        System.out.print(ps.countMe("Alex Alex Alex Alex", 'x'));
-        //ps.triplets();
-        //ps.addMe();
-        //ps.sequence();
-        //ps.intertwine();
-        //ps.isPalindrome();
+        //System.out.print(ps.countMe("ii", 'i'));
+        //System.out.print(ps.triplets("   "));
+        //System.out.print(ps.addMe("2 plus 2 is..."));
+        //System.out.print(ps.sequence("          aa"));
+        //System.out.print(ps.intertwine("", "el!"));
+        System.out.print(ps.isPalindrome(" "));
     }
 
     /*
@@ -43,8 +43,7 @@ public class ProblemSet5 {
         if (in == null || out.length() != 4) {
             return in;
         }
-        return out.substring(0,2) + in + out.substring(out.length() - 2, out.length());
-
+        return out.substring(0, 2) + in + out.substring(out.length() - 2, out.length());
     }
 
     /*
@@ -74,7 +73,6 @@ public class ProblemSet5 {
         } else {
             return text.substring(text.length() / 2 - 1, text.length() / 2 + 2);
         }
-
     }
 
     /*
@@ -101,19 +99,15 @@ public class ProblemSet5 {
 
     public int countMe(String text, char suffix) {
         int count = 0;
-        if (text == null || Character.toString(suffix).matches("[a-zA-Z]")); {
-                for (int i  = 0; i < text.length(); i++){
-                    if ((text.substring(i, i + 1).equals(" ")) && (text.substring(i - 1, i).equals(Character.toString(suffix))) && (i != 0)){
-                        count++;
-                    }
-
-                }
-            }
-        if (count != 0) {
-            return count;
-        } else {
+        if (text == null || !(Character.toString(suffix).matches("[a-zA-Z]"))) {
             return -1;
         }
+        for (int i  = 0; i < text.length(); i++) {
+            if ((i + 1 == text.length() || text.substring(i + 1, i + 2).equals(" ")) && (text.substring(i, i + 1).equals(Character.toString(suffix)))) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /*
@@ -123,7 +117,16 @@ public class ProblemSet5 {
      */
 
     public int triplets(String text) {
-        return 1;
+        int triplets = 0;
+        if (text == null) {
+            return -1;
+        }
+        for (int i = 0; i < text.length() - 2; i++) {
+            if ((text.substring(i, i + 1).equals(text.substring(i + 1, i + 2))) && (text.substring(i, i + 1).equals(text.substring(i + 2, i + 3))) && !(text.substring(i, i + 1).equals(" "))) {
+                triplets++;
+            }
+        }
+        return triplets;
     }
 
     /*
@@ -133,7 +136,16 @@ public class ProblemSet5 {
      */
 
     public long addMe(String text) {
-        return 1;
+        int sum = 0;
+        if (text == null) {
+            return -1;
+        }
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.isDigit(text.charAt(i))){
+                sum += Integer.valueOf(text.substring(i, i + 1));
+            }
+        }
+        return sum;
     }
 
     /*
@@ -143,7 +155,23 @@ public class ProblemSet5 {
      */
 
     public long sequence(String text) {
-        return 10;
+        int length = 0;
+        int currentLength = 0;
+        if (text == null) {
+            return -1;
+        }
+        for (int i = 0; i < text.length() - 1; i++) {
+            for (int j = 1; j + i < text.length() - 1; j++) {
+                if (text.charAt(i) == (text.charAt(i + j))) {
+                    currentLength++;
+                }
+            }
+            if (currentLength > length){
+                length = 1 + currentLength;
+            }
+            currentLength = 0;
+        }
+        return length;
     }
 
     /*
@@ -154,7 +182,20 @@ public class ProblemSet5 {
      */
 
     public String intertwine(String a, String b) {
-        return "hi";
+        String ab = "";
+        if (a == null || b == null) {
+            return null;
+        }
+
+        for (int i = 0; i < a.length() + b.length(); i++) {
+            if (i < a.length()) {
+                ab += a.charAt(i);
+            }
+            if (i < b.length()) {
+                ab += b.charAt(i);
+            }
+        }
+        return ab;
     }
 
     /*
@@ -164,6 +205,17 @@ public class ProblemSet5 {
      */
 
     public boolean isPalindrome(String text) {
-        return true;
+        String txet = "";
+        if (text == null) {
+            return false;
+        }
+        for (int i = text.length() - 1; i >= 0; i--) {
+            txet += text.charAt(i);
+        }
+        if (txet.equals(text)){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
