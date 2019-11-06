@@ -20,7 +20,7 @@ public class ProblemSet5 {
 
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
-        System.out.print(ps.surroundMe("nk \n me", "dame"));
+        System.out.print(ps.surroundMe("qw", "\n\n"));
         //System.out.print(ps.endsMeet("killlakill", 2));
         //System.out.print(ps.middleMan("qw"));
         //System.out.print(ps.isCentered("qucckzz", "cck"));
@@ -29,7 +29,7 @@ public class ProblemSet5 {
         //System.out.print(ps.addMe("2 plus 2 is..."));
         //System.out.print(ps.sequence("          aa"));
         //System.out.print(ps.intertwine("", "el!"));
-        //System.out.print(ps.isPalindrome(" "));
+        //System.out.print(ps.isPalindrome());
     }
 
     /*
@@ -41,8 +41,10 @@ public class ProblemSet5 {
 
     public String surroundMe(String in, String out) {
         if (in == null || out == null || out.length() != 4) {
+            System.out.print("yek");
             return in;
         }
+
         return out.substring(0, 2) + in + out.substring(out.length() - 2, out.length());
     }
 
@@ -212,10 +214,7 @@ public class ProblemSet5 {
         for (int i = text.length() - 1; i >= 0; i--) {
             txet += text.charAt(i);
         }
-        if (txet.equals(text)){
-            return true;
-        } else {
-            return false;
-        }
+        return txet.equals(text);
+
     }
 }
