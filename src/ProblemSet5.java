@@ -17,19 +17,19 @@
  */
 
 public class ProblemSet5 {
-
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
-        System.out.print(ps.surroundMe("qw", "\n\n"));
-        //System.out.print(ps.endsMeet("killlakill", 2));
-        //System.out.print(ps.middleMan("qw"));
-        //System.out.print(ps.isCentered("qucckzz", "cck"));
-        //System.out.print(ps.countMe("ii", 'i'));
-        //System.out.print(ps.triplets("   "));
-        //System.out.print(ps.addMe("2 plus 2 is..."));
-        //System.out.print(ps.sequence("          aa"));
-        //System.out.print(ps.intertwine("", "el!"));
-        //System.out.print(ps.isPalindrome());
+
+        System.out.print(ps.surroundMe("Surrounded by lines", "\n\n"));
+        System.out.print(ps.endsMeet("thisisthis", 2));
+        System.out.print(ps.middleMan("himidlo"));
+        System.out.print(ps.isCentered("himidlo", "mid"));
+        System.out.print(ps.countMe("fan pan notthis", 'n'));
+        System.out.print(ps.triplets("thhhere arrre threee"));
+        System.out.print(ps.addMe("2 plus 2 is..."));
+        System.out.print(ps.sequence("LLLL mmm sss"));
+        System.out.print(ps.intertwine("jv", "aa"));
+        System.out.print(ps.isPalindrome("racecar"));
     }
 
     /*
@@ -40,11 +40,31 @@ public class ProblemSet5 {
      */
 
     public String surroundMe(String in, String out) {
-        if (in == null || out == null || out.length() != 4) {
-            System.out.print("yek");
+        int specialChars = 0;
+        if (in == null || out == null ) {
             return in;
         }
+        for (int i = 0; i < out.length(); i++) {
+            if (out.charAt(i) == '\\'){
+                specialChars++;
+            } else if (out.charAt(i) == '\"'){
+                specialChars++;
+            } else if (out.charAt(i) == '\''){
+                specialChars++;
+            } else if (out.charAt(i) == '\f'){
+                specialChars++;
+            } else if (out.charAt(i) == '\n'){
+                specialChars++;
+            } else if (out.charAt(i) == '\b'){
+                specialChars++;
+            } else if (out.charAt(i) == '\t'){
+                specialChars++;
+            }
+        }
 
+        if (out.length() + specialChars != 4) {
+            return in;
+        }
         return out.substring(0, 2) + in + out.substring(out.length() - 2, out.length());
     }
 
@@ -85,12 +105,7 @@ public class ProblemSet5 {
      */
 
     public boolean isCentered(String text, String target) {
-        if (text == null || target == null || (text.length() % 2 == 0) || text.length() < 3  || target.length() != 3 || !((text.substring(text.length() / 2 - 1, text.length() / 2 + 2)).equals(target))) {
-            return false;
-        } else {
-            return true;
-        }
-
+        return !(text == null || target == null || (text.length() % 2 == 0) || text.length() < 3  || target.length() != 3 || !((text.substring(text.length() / 2 - 1, text.length() / 2 + 2)).equals(target)));
     }
 
     /*
